@@ -1,0 +1,49 @@
+<%- include('partials/head', { title: t('about.title'), description: t('about.lead') }) %>
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="hero-glow sm" aria-hidden="true"></div>
+  <div class="container narrow">
+    <span class="eyebrow"><%- include('partials/icon', { name: 'sparkles', iconSize: 16 }) %><%= siteName %></span>
+    <h1><%= t('about.title') %></h1>
+    <p class="lead"><%= t('about.lead') %></p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container about-grid">
+    <div class="glow-card pad reveal">
+      <h2><%= t('about.missionTitle') %></h2>
+      <p class="big-text"><%= t('about.mission') %></p>
+    </div>
+    <div class="glow-card pad reveal">
+      <h2><%= t('about.audienceTitle') %></h2>
+      <ul class="check-list" role="list">
+        <% t('about.audience').forEach((a) => { %><li><%- include('partials/icon', { name: 'check', iconSize: 18 }) %><span><%= a %></span></li><% }) %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="center"><%= t('about.valuesTitle') %></h2>
+    <ol class="values" role="list">
+      <% t('about.values').forEach((v, i) => { %>
+        <li class="value reveal"><span class="value-num">0<%= i + 1 %></span><h3><%= v.title %></h3><p><%= v.text %></p></li>
+      <% }) %>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band glow-card reveal">
+      <h2><%= t('about.cta') %></h2>
+      <a class="btn btn-primary btn-lg" href="<%= url('/contact') %>"><%= t('about.ctaButton') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 18 }) %></a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

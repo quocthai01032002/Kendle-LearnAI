@@ -1,0 +1,16 @@
+<article class="card reveal">
+  <a class="card-media" href="<%= url('/blog/' + p.slug) %>" tabindex="-1" aria-hidden="true">
+    <%- include('cover', { p }) %>
+  </a>
+  <div class="card-body">
+    <a class="chip" href="<%= url('/category/' + p.category) %>">
+      <%- include('icon', { name: catIcon[p.category], iconSize: 14 }) %><%= t('categories.' + p.category + '.name') %>
+    </a>
+    <h3 class="card-title"><a href="<%= url('/blog/' + p.slug) %>" class="stretched"><%= p.title %></a></h3>
+    <p class="card-desc"><%= p.description %></p>
+    <div class="meta">
+      <span><%- include('icon', { name: 'calendar', iconSize: 14 }) %><time datetime="<%= p.date.toISOString() %>"><%= formatDate(p.date) %></time></span>
+      <span><%- include('icon', { name: 'clock', iconSize: 14 }) %><%= t('post.minRead', { n: p.readingTime }) %></span>
+    </div>
+  </div>
+</article>

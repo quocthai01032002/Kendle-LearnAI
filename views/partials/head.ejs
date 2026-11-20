@@ -1,0 +1,34 @@
+<%
+const pageTitle = typeof title !== 'undefined' && title ? `${title} | ${siteName}` : `${siteName} | ${t('meta.tagline')}`;
+const pageDesc = typeof description !== 'undefined' && description ? description : t('meta.description');
+const ogType = typeof ogTypeOverride !== 'undefined' ? ogTypeOverride : 'website';
+%><!doctype html>
+<html lang="<%= t('meta.htmlLang') %>" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= pageTitle %></title>
+  <meta name="description" content="<%= pageDesc %>">
+  <link rel="canonical" href="<%= canonical %>">
+  <link rel="alternate" hreflang="<%= locale %>" href="<%= canonical %>">
+  <link rel="alternate" hreflang="<%= otherLocale %>" href="<%= siteUrl + altHref %>">
+  <link rel="alternate" type="application/rss+xml" title="<%= siteName %> RSS" href="<%= url('/rss.xml') %>">
+  <meta name="theme-color" content="#07070c">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:site_name" content="<%= siteName %>">
+  <meta property="og:type" content="<%= ogType %>">
+  <meta property="og:title" content="<%= pageTitle %>">
+  <meta property="og:description" content="<%= pageDesc %>">
+  <meta property="og:url" content="<%= canonical %>">
+  <meta property="og:locale" content="<%= t('meta.ogLocale') %>">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/main.css?v=1.0.0">
+  <% if (typeof jsonLd !== 'undefined') { %><script type="application/ld+json"><%- JSON.stringify(jsonLd).replace(/</g, '\\u003c') %></script><% } %>
+  <script src="/js/main.js?v=1.0.0" defer></script>
+</head>
+<body data-page="<%= page %>" data-locale="<%= locale %>">
+<a class="skip-link" href="#main"><%= t('nav.skip') %></a>

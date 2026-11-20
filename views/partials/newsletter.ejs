@@ -1,0 +1,29 @@
+<section class="section" id="newsletter" aria-labelledby="nl-title">
+  <div class="container">
+    <div class="newsletter glow-card reveal">
+      <div class="nl-orb" aria-hidden="true"></div>
+      <div class="nl-copy">
+        <span class="eyebrow"><%- include('icon', { name: 'mail', iconSize: 16 }) %> Newsletter</span>
+        <h2 id="nl-title"><%= t('form.newsletter.title') %></h2>
+        <p><%= t('form.newsletter.lead') %></p>
+      </div>
+      <form class="nl-form" action="/api/subscribe" method="post" data-ajax-form novalidate>
+        <input type="hidden" name="locale" value="<%= locale %>">
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field">
+          <label for="nl-email" class="sr-only"><%= t('form.email') %></label>
+          <div class="nl-row">
+            <input id="nl-email" type="email" name="email" required autocomplete="email" inputmode="email"
+              placeholder="<%= t('form.newsletter.placeholder') %>" aria-describedby="nl-email-error nl-note">
+            <button class="btn btn-primary" type="submit" data-sending="<%= t('form.sending') %>">
+              <span class="btn-label"><%= t('form.newsletter.button') %></span><%- include('icon', { name: 'arrow-right', iconSize: 18 }) %>
+            </button>
+          </div>
+          <p class="field-error" id="nl-email-error" data-error-for="email" role="alert"></p>
+        </div>
+        <p class="form-note" id="nl-note"><%- include('icon', { name: 'shield', iconSize: 14 }) %> <%= t('form.newsletter.note') %></p>
+        <div class="form-status" role="status" aria-live="polite" data-network-error="<%= t('form.errors.network') %>"></div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+{
+  "name": "kendle-learnai",
+  "version": "1.0.0",
+  "description": "Kendle learnAI — blog & tin tức AI song ngữ Việt / Anh",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "gray-matter": "^4.0.3",
+    "helmet": "^8.0.0",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.6",
+    "marked-highlight": "^2.2.1",
+    "nodemailer": "^6.9.16"
+  }
+}

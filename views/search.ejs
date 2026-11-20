@@ -1,0 +1,38 @@
+<%- include('partials/head', { title: q ? `${t('search.title')}: ${q}` : t('search.title') }) %>
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="hero-glow sm" aria-hidden="true"></div>
+  <div class="container narrow">
+    <h1><%= t('search.title') %></h1>
+    <form class="search-form" action="<%= url('/search') %>" method="get" role="search">
+      <label for="q" class="sr-only"><%= t('search.label') %></label>
+      <span class="search-icon"><%- include('partials/icon', { name: 'search' }) %></span>
+      <input id="q" name="q" type="search" value="<%= q %>" placeholder="<%= t('search.placeholder') %>" autocomplete="off" enterkeyhint="search" <%= q ? '' : 'autofocus' %>>
+      <button class="btn btn-primary" type="submit"><%= t('search.button') %></button>
+    </form>
+    <p class="search-summary" role="status">
+      <% if (!q) { %><%= t('search.hint') %>
+      <% } else if (results.length) { %><%= t('search.results', { n: results.length, q }) %>
+      <% } else { %><%= t('search.none', { q }) %><% } %>
+    </p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <% if (results.length) { %>
+      <div class="grid-cards">
+        <% results.forEach((p) => { %><%- include('partials/card', { p }) %><% }) %>
+      </div>
+    <% } else { %>
+      <h2 class="section-kicker"><%= t('home.topics') %></h2>
+      <div class="filter"><ul role="list">
+        <% categories.forEach((c) => { %><li><a class="filter-pill" href="<%= url('/category/' + c) %>"><%- include('partials/icon', { name: catIcon[c], iconSize: 14 }) %><%= t('categories.' + c + '.name') %></a></li><% }) %>
+      </ul></div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

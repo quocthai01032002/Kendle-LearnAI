@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "htmlLang": "vi",
+    "ogLocale": "vi_VN",
+    "tagline": "Học AI rõ ràng, thực tế, bằng tiếng Việt",
+    "description": "Kendle learnAI — blog và tin tức AI: hướng dẫn thực hành, phân tích xu hướng, công cụ và kỹ năng AI cho người Việt."
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "blog": "Bài viết",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "search": "Tìm kiếm",
+    "subscribe": "Đăng ký",
+    "menu": "Mở menu",
+    "close": "Đóng menu",
+    "skip": "Bỏ qua đến nội dung chính",
+    "switchLang": "Switch to English"
+  },
+  "home": {
+    "eyebrow": "Blog AI cho người Việt",
+    "title1": "Hiểu AI.",
+    "title2": "Dùng AI.",
+    "title3": "Đi trước một bước.",
+    "lead": "Hướng dẫn thực hành, phân tích chuyên sâu và tin tức AI, viết dễ hiểu và đi thẳng vào việc áp dụng. Mỗi tuần một bài, không tin rác.",
+    "ctaPrimary": "Đọc bài mới nhất",
+    "ctaSecondary": "Nhận bản tin hàng tuần",
+    "statPosts": "Bài viết chuyên sâu",
+    "statTopics": "Chủ đề cốt lõi",
+    "statLangs": "Ngôn ngữ",
+    "featured": "Nổi bật",
+    "latest": "Bài viết mới nhất",
+    "latestLead": "Kiến thức AI mới nhất, chọn lọc kỹ và viết để bạn dùng được ngay.",
+    "viewAll": "Xem tất cả bài viết",
+    "topics": "Khám phá theo chủ đề",
+    "topicsLead": "Sáu mảng kiến thức cốt lõi, đi từ nền tảng tới ứng dụng thực tế.",
+    "postsCount": "{n} bài viết",
+    "whyTitle": "Vì sao chọn Kendle learnAI?",
+    "why": [
+      { "icon": "target", "title": "Thực hành trước", "text": "Mỗi bài đều có ví dụ, prompt hoặc đoạn code bạn chạy được ngay." },
+      { "icon": "shield", "title": "Kiểm chứng kỹ", "text": "Thông tin có nguồn rõ ràng, không thổi phồng, không giật tít." },
+      { "icon": "languages", "title": "Song ngữ Việt / Anh", "text": "Thuật ngữ được giải thích rõ, có bản tiếng Anh cho người cần." }
+    ]
+  },
+  "blog": {
+    "title": "Tất cả bài viết",
+    "lead": "Thư viện kiến thức AI: từ khái niệm nền tảng đến kỹ thuật nâng cao.",
+    "all": "Tất cả",
+    "empty": "Chưa có bài viết nào trong mục này.",
+    "prev": "Trang trước",
+    "next": "Trang sau",
+    "page": "Trang {n}/{total}",
+    "categoryTitle": "Chủ đề: {name}",
+    "filter": "Lọc theo chủ đề"
+  },
+  "post": {
+    "minRead": "{n} phút đọc",
+    "by": "Bởi",
+    "updated": "Cập nhật",
+    "toc": "Mục lục",
+    "share": "Chia sẻ",
+    "copyLink": "Sao chép liên kết",
+    "copied": "Đã sao chép!",
+    "related": "Bài viết liên quan",
+    "back": "Quay lại danh sách",
+    "tags": "Thẻ",
+    "progress": "Tiến độ đọc"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "placeholder": "Tìm bài viết, công cụ, khái niệm…",
+    "label": "Từ khóa tìm kiếm",
+    "button": "Tìm",
+    "results": "{n} kết quả cho “{q}”",
+    "none": "Không tìm thấy kết quả cho “{q}”. Thử từ khóa khác như “prompt”, “LLM” hoặc “RAG”.",
+    "hint": "Nhập từ khóa để tìm trong toàn bộ thư viện bài viết."
+  },
+  "categories": {
+    "generative-ai": { "name": "AI tạo sinh", "desc": "LLM, mô hình hình ảnh, video và cách chúng hoạt động." },
+    "machine-learning": { "name": "Machine Learning", "desc": "Nền tảng toán học, thuật toán và huấn luyện mô hình." },
+    "prompt-engineering": { "name": "Prompt Engineering", "desc": "Kỹ thuật viết prompt để có kết quả chính xác, ổn định." },
+    "ai-tools": { "name": "Công cụ AI", "desc": "Đánh giá và hướng dẫn công cụ AI cho công việc." },
+    "ai-ethics": { "name": "Đạo đức & An toàn", "desc": "Rủi ro, quy định và cách dùng AI có trách nhiệm." },
+    "tutorials": { "name": "Hướng dẫn", "desc": "Từng bước xây dựng dự án AI thực tế." }
+  },
+  "about": {
+    "title": "Về Kendle learnAI",
+    "lead": "Chúng tôi giúp người Việt hiểu và làm chủ trí tuệ nhân tạo, bằng nội dung rõ ràng, trung thực và áp dụng được.",
+    "missionTitle": "Sứ mệnh",
+    "mission": "AI đang thay đổi cách chúng ta học, làm việc và sáng tạo. Phần lớn tài liệu tốt nhất lại viết bằng tiếng Anh, nhiều thuật ngữ và thường xa rời thực tế. Kendle learnAI ra đời để thu hẹp khoảng cách đó: mỗi bài viết đều giải thích khái niệm cốt lõi, chỉ ra cách áp dụng và nói rõ giới hạn của công nghệ.",
+    "valuesTitle": "Giá trị cốt lõi",
+    "values": [
+      { "title": "Rõ ràng", "text": "Giải thích bằng ngôn ngữ đời thường, có ví dụ minh họa." },
+      { "title": "Trung thực", "text": "Không thổi phồng. Nói rõ AI làm được gì và chưa làm được gì." },
+      { "title": "Thực tế", "text": "Ưu tiên những gì bạn áp dụng được vào công việc ngay tuần này." },
+      { "title": "Cộng đồng", "text": "Lắng nghe câu hỏi của độc giả và viết theo nhu cầu thật." }
+    ],
+    "audienceTitle": "Dành cho ai?",
+    "audience": ["Sinh viên và người mới bắt đầu tìm hiểu AI", "Nhân viên văn phòng muốn tăng năng suất với AI", "Lập trình viên muốn tích hợp LLM vào sản phẩm", "Nhà quản lý cần hiểu AI để ra quyết định"],
+    "cta": "Có câu hỏi hoặc muốn hợp tác?",
+    "ctaButton": "Liên hệ với chúng tôi"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "lead": "Đề xuất chủ đề, hợp tác nội dung hay góp ý: chúng tôi đọc mọi tin nhắn và thường phản hồi trong 1–2 ngày làm việc.",
+    "infoTitle": "Cách khác để kết nối",
+    "emailLabel": "Email",
+    "responseLabel": "Thời gian phản hồi",
+    "responseValue": "1–2 ngày làm việc",
+    "topics": ["Đề xuất chủ đề bài viết", "Hợp tác / tài trợ", "Góp ý nội dung", "Khác"]
+  },
+  "form": {
+    "name": "Họ và tên",
+    "email": "Email",
+    "topic": "Chủ đề",
+    "message": "Nội dung",
+    "messageHelp": "Tối thiểu 10 ký tự.",
+    "send": "Gửi tin nhắn",
+    "sending": "Đang gửi…",
+    "contact": { "success": "Cảm ơn bạn! Tin nhắn đã được gửi, chúng tôi sẽ phản hồi sớm." },
+    "newsletter": {
+      "title": "Bản tin AI mỗi tuần",
+      "lead": "Một email mỗi thứ Sáu: bài viết mới, công cụ đáng thử và tin AI quan trọng nhất, tóm gọn trong 5 phút đọc.",
+      "placeholder": "email@cuaban.com",
+      "button": "Đăng ký miễn phí",
+      "note": "Không spam. Hủy đăng ký bất cứ lúc nào.",
+      "success": "Đăng ký thành công! Hẹn gặp bạn trong bản tin thứ Sáu này."
+    },
+    "errors": {
+      "name": "Vui lòng nhập họ tên (ít nhất 2 ký tự).",
+      "email": "Email chưa hợp lệ, ví dụ: ten@gmail.com",
+      "message": "Nội dung cần ít nhất 10 ký tự.",
+      "server": "Có lỗi xảy ra, vui lòng thử lại sau ít phút.",
+      "rate": "Bạn gửi quá nhiều lần. Vui lòng thử lại sau 15 phút.",
+      "network": "Không kết nối được máy chủ. Kiểm tra mạng và thử lại."
+    }
+  },
+  "footer": {
+    "about": "Blog AI song ngữ giúp người Việt hiểu, dùng và làm chủ trí tuệ nhân tạo.",
+    "explore": "Khám phá",
+    "topics": "Chủ đề",
+    "company": "Kendle learnAI",
+    "rss": "RSS Feed",
+    "rights": "Bảo lưu mọi quyền.",
+    "made": "Viết với sự tò mò tại Việt Nam."
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "lead": "Trang bạn tìm có thể đã được di chuyển hoặc không còn tồn tại.",
+    "home": "Về trang chủ",
+    "search": "Tìm bài viết"
+  }
+}

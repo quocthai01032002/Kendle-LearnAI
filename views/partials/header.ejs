@@ -1,0 +1,49 @@
+<%
+const navItems = [
+  { href: url('/'), label: t('nav.home'), key: 'home' },
+  { href: url('/blog'), label: t('nav.blog'), key: 'blog' },
+  { href: url('/about'), label: t('nav.about'), key: 'about' },
+  { href: url('/contact'), label: t('nav.contact'), key: 'contact' }
+];
+const isActive = (key) => (key === 'blog' ? ['blog', 'post'].includes(page) : page === key);
+%>
+<div class="read-progress" aria-hidden="true"><span></span></div>
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="<%= url('/') %>" aria-label="<%= siteName %>, <%= t('nav.home') %>">
+      <img src="/img/logo.svg" width="32" height="32" alt="">
+      <span class="brand-name">Kendle <span class="grad-text">learnAI</span></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Main">
+      <ul>
+        <% navItems.forEach((n) => { %>
+          <li><a href="<%= n.href %>" <%- isActive(n.key) ? 'aria-current="page"' : '' %>><%= n.label %></a></li>
+        <% }) %>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="<%= url('/search') %>" aria-label="<%= t('nav.search') %>"><%- include('icon', { name: 'search' }) %></a>
+      <a class="lang-switch" href="<%= altHref %>" hreflang="<%= otherLocale %>" lang="<%= otherLocale %>" aria-label="<%= t('nav.switchLang') %>">
+        <%- include('icon', { name: 'globe', iconSize: 16 }) %><span><%= otherLocale.toUpperCase() %></span>
+      </a>
+      <a class="btn btn-primary btn-sm hide-mobile" href="#newsletter"><%= t('nav.subscribe') %></a>
+      <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle
+        data-label-open="<%= t('nav.menu') %>" data-label-close="<%= t('nav.close') %>" aria-label="<%= t('nav.menu') %>">
+        <span class="i-open"><%- include('icon', { name: 'menu' }) %></span>
+        <span class="i-close"><%- include('icon', { name: 'x' }) %></span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile" hidden>
+    <ul class="container">
+      <% navItems.forEach((n) => { %>
+        <li><a href="<%= n.href %>" <%- isActive(n.key) ? 'aria-current="page"' : '' %>><%= n.label %><%- include('icon', { name: 'arrow-right', iconSize: 18 }) %></a></li>
+      <% }) %>
+      <li><a href="#newsletter" data-close-menu><%= t('nav.subscribe') %><%- include('icon', { name: 'mail', iconSize: 18 }) %></a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main" tabindex="-1">

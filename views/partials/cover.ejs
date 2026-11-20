@@ -1,0 +1,25 @@
+<%
+// Deterministic generative "neural" artwork per post — no image files needed.
+let seed = 0;
+for (const ch of p.slug) seed = (seed * 33 + ch.charCodeAt(0)) >>> 0;
+const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+const h1 = p.hue, h2 = (p.hue + 55) % 360;
+const gid = 'g' + p.slug.replace(/[^a-z0-9]/gi, '').slice(0, 24) + (typeof variant !== 'undefined' ? variant : '');
+const nodes = Array.from({ length: 11 }, () => [Math.round(40 + rand() * 720), Math.round(30 + rand() * 390)]);
+const edges = [];
+nodes.forEach((a, i) => nodes.forEach((b, j) => {
+  if (j > i && Math.hypot(a[0] - b[0], a[1] - b[1]) < 260) edges.push([a, b]);
+}));
+%><svg class="cover" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img" aria-label="<%= p.title %>">
+  <defs>
+    <radialGradient id="<%= gid %>a" cx="20%" cy="25%" r="70%"><stop offset="0" stop-color="hsl(<%= h1 %> 85% 60%)" stop-opacity=".75"/><stop offset="1" stop-color="hsl(<%= h1 %> 85% 60%)" stop-opacity="0"/></radialGradient>
+    <radialGradient id="<%= gid %>b" cx="85%" cy="80%" r="65%"><stop offset="0" stop-color="hsl(<%= h2 %> 90% 55%)" stop-opacity=".65"/><stop offset="1" stop-color="hsl(<%= h2 %> 90% 55%)" stop-opacity="0"/></radialGradient>
+    <pattern id="<%= gid %>grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="800" height="450" fill="#0b0b14"/>
+  <rect width="800" height="450" fill="url(#<%= gid %>a)"/>
+  <rect width="800" height="450" fill="url(#<%= gid %>b)"/>
+  <rect width="800" height="450" fill="url(#<%= gid %>grid)"/>
+  <g stroke="#fff" stroke-opacity=".22" stroke-width="1"><% edges.forEach(([a, b]) => { %><line x1="<%= a[0] %>" y1="<%= a[1] %>" x2="<%= b[0] %>" y2="<%= b[1] %>"/><% }) %></g>
+  <g><% nodes.forEach(([x, y], i) => { %><circle cx="<%= x %>" cy="<%= y %>" r="<%= i % 3 === 0 ? 6 : 3 %>" fill="#fff" fill-opacity="<%= i % 3 === 0 ? .9 : .55 %>"/><% if (i % 3 === 0) { %><circle cx="<%= x %>" cy="<%= y %>" r="16" fill="none" stroke="#fff" stroke-opacity=".25"/><% } %><% }) %></g>
+</svg>

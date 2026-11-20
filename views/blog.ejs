@@ -1,0 +1,57 @@
+<%
+const catName = activeCategory ? t('categories.' + activeCategory + '.name') : null;
+%><%- include('partials/head', {
+  title: catName ? t('blog.categoryTitle', { name: catName }) : t('blog.title'),
+  description: catName ? t('categories.' + activeCategory + '.desc') : t('blog.lead')
+}) %>
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="hero-glow sm" aria-hidden="true"></div>
+  <div class="container">
+    <% if (activeCategory) { %>
+      <span class="eyebrow"><%- include('partials/icon', { name: catIcon[activeCategory], iconSize: 16 }) %><%= t('home.postsCount', { n: categoryCounts[activeCategory] }) %></span>
+      <h1><%= catName %></h1>
+      <p class="lead"><%= t('categories.' + activeCategory + '.desc') %></p>
+    <% } else { %>
+      <h1><%= t('blog.title') %></h1>
+      <p class="lead"><%= t('blog.lead') %></p>
+    <% } %>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <nav class="filter" aria-label="<%= t('blog.filter') %>">
+      <ul role="list">
+        <li><a class="filter-pill" href="<%= url('/blog') %>" <%- !activeCategory ? 'aria-current="page"' : '' %>><%= t('blog.all') %></a></li>
+        <% categories.forEach((c) => { %>
+          <li><a class="filter-pill" href="<%= url('/category/' + c) %>" <%- activeCategory === c ? 'aria-current="page"' : '' %>>
+            <%- include('partials/icon', { name: catIcon[c], iconSize: 14 }) %><%= t('categories.' + c + '.name') %>
+            <span class="count"><%= categoryCounts[c] %></span>
+          </a></li>
+        <% }) %>
+      </ul>
+    </nav>
+
+    <% if (!pg.items.length) { %>
+      <div class="empty"><%- include('partials/icon', { name: 'book', iconSize: 32 }) %><p><%= t('blog.empty') %></p>
+        <a class="btn btn-ghost" href="<%= url('/blog') %>"><%= t('blog.all') %></a></div>
+    <% } else { %>
+      <div class="grid-cards">
+        <% pg.items.forEach((p) => { %><%- include('partials/card', { p }) %><% }) %>
+      </div>
+    <% } %>
+
+    <% if (pg.total > 1) { %>
+      <nav class="pagination" aria-label="Pagination">
+        <% if (pg.current > 1) { %><a class="btn btn-ghost" href="<%= baseHref %>?page=<%= pg.current - 1 %>" rel="prev"><%- include('partials/icon', { name: 'arrow-left', iconSize: 18 }) %><%= t('blog.prev') %></a><% } %>
+        <span><%= t('blog.page', { n: pg.current, total: pg.total }) %></span>
+        <% if (pg.current < pg.total) { %><a class="btn btn-ghost" href="<%= baseHref %>?page=<%= pg.current + 1 %>" rel="next"><%= t('blog.next') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 18 }) %></a><% } %>
+      </nav>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

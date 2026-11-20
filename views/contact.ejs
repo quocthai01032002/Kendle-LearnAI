@@ -1,0 +1,63 @@
+<%- include('partials/head', { title: t('contact.title'), description: t('contact.lead') }) %>
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="hero-glow sm" aria-hidden="true"></div>
+  <div class="container narrow">
+    <h1><%= t('contact.title') %></h1>
+    <p class="lead"><%= t('contact.lead') %></p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container contact-grid">
+    <form class="glow-card pad contact-form" action="/api/contact" method="post" data-ajax-form data-reset-on-success novalidate>
+      <input type="hidden" name="locale" value="<%= locale %>">
+      <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="c-name"><%= t('form.name') %> <span class="req" aria-hidden="true">*</span></label>
+          <input id="c-name" name="name" type="text" required minlength="2" maxlength="100" autocomplete="name" aria-describedby="c-name-error">
+          <p class="field-error" id="c-name-error" data-error-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="c-email"><%= t('form.email') %> <span class="req" aria-hidden="true">*</span></label>
+          <input id="c-email" name="email" type="email" required maxlength="200" autocomplete="email" inputmode="email" aria-describedby="c-email-error">
+          <p class="field-error" id="c-email-error" data-error-for="email"></p>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-topic"><%= t('form.topic') %></label>
+        <select id="c-topic" name="topic">
+          <% t('contact.topics').forEach((tp) => { %><option value="<%= tp %>"><%= tp %></option><% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="c-message"><%= t('form.message') %> <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="c-message" name="message" rows="6" required minlength="10" maxlength="5000" aria-describedby="c-message-help c-message-error"></textarea>
+        <p class="field-help" id="c-message-help"><%= t('form.messageHelp') %></p>
+        <p class="field-error" id="c-message-error" data-error-for="message"></p>
+      </div>
+      <button class="btn btn-primary btn-lg" type="submit" data-sending="<%= t('form.sending') %>">
+        <span class="btn-label"><%= t('form.send') %></span><%- include('partials/icon', { name: 'arrow-right', iconSize: 18 }) %>
+      </button>
+      <div class="form-status" role="status" aria-live="polite" data-network-error="<%= t('form.errors.network') %>"></div>
+    </form>
+
+    <aside class="contact-info">
+      <h2><%= t('contact.infoTitle') %></h2>
+      <ul class="info-list" role="list">
+        <li><span class="why-icon"><%- include('partials/icon', { name: 'mail' }) %></span>
+          <div><span class="info-label"><%= t('contact.emailLabel') %></span><a href="mailto:<%= contactEmail %>"><%= contactEmail %></a></div></li>
+        <li><span class="why-icon"><%- include('partials/icon', { name: 'clock' }) %></span>
+          <div><span class="info-label"><%= t('contact.responseLabel') %></span><span><%= t('contact.responseValue') %></span></div></li>
+        <li><span class="why-icon"><%- include('partials/icon', { name: 'rss' }) %></span>
+          <div><span class="info-label">RSS</span><a href="<%= url('/rss.xml') %>"><%= absUrl('/rss.xml') %></a></div></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

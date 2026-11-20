@@ -1,0 +1,16 @@
+<%- include('partials/head', { title: t('notFound.title') }) %>
+<%- include('partials/header') %>
+<section class="page-hero notfound">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container narrow center">
+    <p class="big-404 grad-text" aria-hidden="true">404</p>
+    <h1><%= t('notFound.title') %></h1>
+    <p class="lead"><%= t('notFound.lead') %></p>
+    <div class="hero-ctas center-row">
+      <a class="btn btn-primary" href="<%= url('/') %>"><%= t('notFound.home') %></a>
+      <a class="btn btn-ghost" href="<%= url('/search') %>"><%- include('partials/icon', { name: 'search', iconSize: 18 }) %><%= t('notFound.search') %></a>
+    </div>
+  </div>
+</section>
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

@@ -1,0 +1,40 @@
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="<%= url('/') %>">
+        <img src="/img/logo.svg" width="32" height="32" alt="">
+        <span class="brand-name">Kendle <span class="grad-text">learnAI</span></span>
+      </a>
+      <p><%= t('footer.about') %></p>
+      <div class="socials">
+        <% [['facebook','Facebook'],['youtube','YouTube'],['linkedin','LinkedIn'],['github','GitHub']].forEach(([k, label]) => { if (social[k]) { %>
+          <a class="icon-btn" href="<%= social[k] %>" target="_blank" rel="noopener noreferrer" aria-label="<%= label %>"><%- include('icon', { name: k }) %></a>
+        <% } }) %>
+        <a class="icon-btn" href="<%= url('/rss.xml') %>" aria-label="<%= t('footer.rss') %>"><%- include('icon', { name: 'rss' }) %></a>
+      </div>
+    </div>
+    <div>
+      <h2 class="footer-title"><%= t('footer.explore') %></h2>
+      <ul class="footer-links">
+        <li><a href="<%= url('/blog') %>"><%= t('nav.blog') %></a></li>
+        <li><a href="<%= url('/search') %>"><%= t('nav.search') %></a></li>
+        <li><a href="<%= url('/about') %>"><%= t('nav.about') %></a></li>
+        <li><a href="<%= url('/contact') %>"><%= t('nav.contact') %></a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title"><%= t('footer.topics') %></h2>
+      <ul class="footer-links">
+        <% categories.forEach((c) => { %><li><a href="<%= url('/category/' + c) %>"><%= t('categories.' + c + '.name') %></a></li><% }) %>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <%= year %> <%= siteName %>. <%= t('footer.rights') %></p>
+    <p><%= t('footer.made') %></p>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>

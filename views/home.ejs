@@ -1,0 +1,106 @@
+<%- include('partials/head', {
+  jsonLd: { '@context': 'https://schema.org', '@type': 'WebSite', name: siteName, url: absUrl('/'), inLanguage: locale,
+    potentialAction: { '@type': 'SearchAction', target: absUrl('/search') + '?q={q}', 'query-input': 'required name=q' } }
+}) %>
+<%- include('partials/header') %>
+
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow rise"><span class="pulse-dot" aria-hidden="true"></span><%= t('home.eyebrow') %></span>
+    <h1 id="hero-title" class="hero-title rise">
+      <span><%= t('home.title1') %></span>
+      <span><%= t('home.title2') %></span>
+      <span class="grad-text"><%= t('home.title3') %></span>
+    </h1>
+    <p class="hero-lead rise"><%= t('home.lead') %></p>
+    <div class="hero-ctas rise">
+      <a class="btn btn-primary btn-lg" href="<%= url('/blog') %>"><%= t('home.ctaPrimary') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 18 }) %></a>
+      <a class="btn btn-ghost btn-lg" href="#newsletter"><%- include('partials/icon', { name: 'mail', iconSize: 18 }) %><%= t('home.ctaSecondary') %></a>
+    </div>
+    <dl class="hero-stats rise">
+      <div><dt><%= t('home.statPosts') %></dt><dd data-count="<%= totalPosts %>"><%= totalPosts %></dd></div>
+      <div><dt><%= t('home.statTopics') %></dt><dd data-count="<%= categories.length %>"><%= categories.length %></dd></div>
+      <div><dt><%= t('home.statLangs') %></dt><dd>VI · EN</dd></div>
+    </dl>
+  </div>
+</section>
+
+<% if (featured) { %>
+<section class="section section-tight" aria-labelledby="featured-title">
+  <div class="container">
+    <h2 id="featured-title" class="section-kicker"><%- include('partials/icon', { name: 'sparkles', iconSize: 16 }) %><%= t('home.featured') %></h2>
+    <article class="featured glow-card reveal">
+      <a class="featured-media" href="<%= url('/blog/' + featured.slug) %>" tabindex="-1" aria-hidden="true">
+        <%- include('partials/cover', { p: featured, variant: 'f' }) %>
+      </a>
+      <div class="featured-body">
+        <a class="chip" href="<%= url('/category/' + featured.category) %>"><%- include('partials/icon', { name: catIcon[featured.category], iconSize: 14 }) %><%= t('categories.' + featured.category + '.name') %></a>
+        <h3 class="featured-title"><a href="<%= url('/blog/' + featured.slug) %>"><%= featured.title %></a></h3>
+        <p><%= featured.description %></p>
+        <div class="meta">
+          <span><%- include('partials/icon', { name: 'calendar', iconSize: 14 }) %><time datetime="<%= featured.date.toISOString() %>"><%= formatDate(featured.date) %></time></span>
+          <span><%- include('partials/icon', { name: 'clock', iconSize: 14 }) %><%= t('post.minRead', { n: featured.readingTime }) %></span>
+        </div>
+        <a class="link-arrow" href="<%= url('/blog/' + featured.slug) %>" aria-label="<%= t('home.ctaPrimary') %>: <%= featured.title %>"><%= t('home.ctaPrimary') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 16 }) %></a>
+      </div>
+    </article>
+  </div>
+</section>
+<% } %>
+
+<section class="section" aria-labelledby="latest-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2 id="latest-title"><%= t('home.latest') %></h2>
+        <p><%= t('home.latestLead') %></p>
+      </div>
+      <a class="link-arrow hide-mobile" href="<%= url('/blog') %>"><%= t('home.viewAll') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 16 }) %></a>
+    </div>
+    <div class="grid-cards">
+      <% latest.forEach((p) => { %><%- include('partials/card', { p }) %><% }) %>
+    </div>
+    <div class="center-mobile"><a class="btn btn-ghost show-mobile" href="<%= url('/blog') %>"><%= t('home.viewAll') %><%- include('partials/icon', { name: 'arrow-right', iconSize: 18 }) %></a></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="topics-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2 id="topics-title"><%= t('home.topics') %></h2>
+        <p><%= t('home.topicsLead') %></p>
+      </div>
+    </div>
+    <ul class="topics" role="list">
+      <% categories.forEach((c) => { %>
+        <li class="topic reveal">
+          <span class="topic-icon"><%- include('partials/icon', { name: catIcon[c], iconSize: 22 }) %></span>
+          <h3><a href="<%= url('/category/' + c) %>" class="stretched"><%= t('categories.' + c + '.name') %></a></h3>
+          <p><%= t('categories.' + c + '.desc') %></p>
+          <span class="topic-count"><%= t('home.postsCount', { n: categoryCounts[c] }) %><%- include('partials/icon', { name: 'arrow-up-right', iconSize: 16 }) %></span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="container">
+    <h2 id="why-title" class="center"><%= t('home.whyTitle') %></h2>
+    <ul class="why" role="list">
+      <% t('home.why').forEach((w) => { %>
+        <li class="why-item reveal">
+          <span class="why-icon"><%- include('partials/icon', { name: w.icon, iconSize: 24 }) %></span>
+          <h3><%= w.title %></h3>
+          <p><%= w.text %></p>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

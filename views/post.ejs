@@ -1,0 +1,84 @@
+<%- include('partials/head', {
+  title: post.title,
+  description: post.description,
+  ogTypeOverride: 'article',
+  jsonLd: {
+    '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.description,
+    datePublished: post.date.toISOString(), dateModified: (post.updated || post.date).toISOString(),
+    author: { '@type': 'Person', name: post.author }, inLanguage: locale, mainEntityOfPage: canonical,
+    publisher: { '@type': 'Organization', name: siteName, logo: { '@type': 'ImageObject', url: siteUrl + '/img/logo.svg' } },
+    keywords: post.tags.join(', ')
+  }
+}) %>
+<%- include('partials/header') %>
+
+<article class="article" data-article>
+  <header class="article-hero">
+    <div class="hero-glow sm" aria-hidden="true"></div>
+    <div class="container narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="<%= url('/blog') %>"><%- include('partials/icon', { name: 'arrow-left', iconSize: 16 }) %><%= t('post.back') %></a>
+      </nav>
+      <a class="chip" href="<%= url('/category/' + post.category) %>"><%- include('partials/icon', { name: catIcon[post.category], iconSize: 14 }) %><%= t('categories.' + post.category + '.name') %></a>
+      <h1 class="article-title"><%= post.title %></h1>
+      <p class="lead"><%= post.description %></p>
+      <div class="meta meta-lg">
+        <span class="author"><span class="avatar" aria-hidden="true"><%= post.author.split(' ').map((w) => w[0]).join('').slice(0, 2) %></span><%= t('post.by') %> <strong><%= post.author %></strong></span>
+        <span><%- include('partials/icon', { name: 'calendar', iconSize: 16 }) %><time datetime="<%= post.date.toISOString() %>"><%= formatDate(post.date) %></time></span>
+        <span><%- include('partials/icon', { name: 'clock', iconSize: 16 }) %><%= t('post.minRead', { n: post.readingTime }) %></span>
+      </div>
+    </div>
+    <div class="container article-cover-wrap">
+      <div class="article-cover"><%- include('partials/cover', { p: post, variant: 'hero' }) %></div>
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <aside class="toc" aria-labelledby="toc-title">
+      <% if (post.toc.length) { %>
+        <div class="toc-inner">
+          <h2 id="toc-title" class="toc-title"><%= t('post.toc') %></h2>
+          <ol>
+            <% post.toc.forEach((h) => { %><li class="d<%= h.depth %>"><a href="#<%= h.id %>" data-toc-link><%= h.text %></a></li><% }) %>
+          </ol>
+        </div>
+      <% } %>
+    </aside>
+
+    <div class="prose" data-prose>
+      <%- post.html %>
+
+      <footer class="article-footer">
+        <% if (post.tags.length) { %>
+          <div class="tags" aria-label="<%= t('post.tags') %>">
+            <% post.tags.forEach((tag) => { %><a class="tag" href="<%= url('/search') %>?q=<%= encodeURIComponent(tag) %>">#<%= tag %></a><% }) %>
+          </div>
+        <% } %>
+        <div class="share">
+          <span><%= t('post.share') %></span>
+          <a class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+             href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(canonical) %>"><%- include('partials/icon', { name: 'facebook' }) %></a>
+          <a class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+             href="https://www.linkedin.com/sharing/share-offsite/?url=<%= encodeURIComponent(canonical) %>"><%- include('partials/icon', { name: 'linkedin' }) %></a>
+          <a class="icon-btn" target="_blank" rel="noopener noreferrer" aria-label="X"
+             href="https://x.com/intent/post?url=<%= encodeURIComponent(canonical) %>&text=<%= encodeURIComponent(post.title) %>"><%- include('partials/icon', { name: 'twitter' }) %></a>
+          <button class="icon-btn" type="button" data-copy-link="<%= canonical %>" data-copied="<%= t('post.copied') %>" aria-label="<%= t('post.copyLink') %>"><%- include('partials/icon', { name: 'link' }) %></button>
+        </div>
+      </footer>
+    </div>
+  </div>
+</article>
+
+<% if (related.length) { %>
+<section class="section" aria-labelledby="related-title">
+  <div class="container">
+    <div class="section-head"><h2 id="related-title"><%= t('post.related') %></h2></div>
+    <div class="grid-cards">
+      <% related.forEach((p) => { %><%- include('partials/card', { p }) %><% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<%- include('partials/newsletter') %>
+<%- include('partials/footer') %>

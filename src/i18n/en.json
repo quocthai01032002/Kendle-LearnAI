@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "htmlLang": "en",
+    "ogLocale": "en_US",
+    "tagline": "Learn AI clearly and practically",
+    "description": "Kendle learnAI is an AI blog and newsroom with hands-on tutorials, trend analysis, tools and AI skills you can use right away."
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Articles",
+    "about": "About",
+    "contact": "Contact",
+    "search": "Search",
+    "subscribe": "Subscribe",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "skip": "Skip to main content",
+    "switchLang": "Chuyển sang Tiếng Việt"
+  },
+  "home": {
+    "eyebrow": "The practical AI blog",
+    "title1": "Understand AI.",
+    "title2": "Use AI.",
+    "title3": "Stay one step ahead.",
+    "lead": "Hands-on tutorials, deep dives and AI news, written in plain language and focused on how you can use it. One great article a week, no noise.",
+    "ctaPrimary": "Read the latest",
+    "ctaSecondary": "Get the weekly brief",
+    "statPosts": "In-depth articles",
+    "statTopics": "Core topics",
+    "statLangs": "Languages",
+    "featured": "Featured",
+    "latest": "Latest articles",
+    "latestLead": "Fresh AI knowledge, carefully curated and ready to use today.",
+    "viewAll": "View all articles",
+    "topics": "Explore by topic",
+    "topicsLead": "Six core areas, from fundamentals to real-world applications.",
+    "postsCount": "{n} articles",
+    "whyTitle": "Why Kendle learnAI?",
+    "why": [
+      { "icon": "target", "title": "Practice first", "text": "Every article ships with examples, prompts or code you can run right away." },
+      { "icon": "shield", "title": "Carefully verified", "text": "Clear sources, no hype, no clickbait." },
+      { "icon": "languages", "title": "Bilingual VI / EN", "text": "Terminology explained clearly, in both Vietnamese and English." }
+    ]
+  },
+  "blog": {
+    "title": "All articles",
+    "lead": "A library of AI knowledge, from core concepts to advanced techniques.",
+    "all": "All",
+    "empty": "No articles in this section yet.",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {n} of {total}",
+    "categoryTitle": "Topic: {name}",
+    "filter": "Filter by topic"
+  },
+  "post": {
+    "minRead": "{n} min read",
+    "by": "By",
+    "updated": "Updated",
+    "toc": "On this page",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "related": "Related articles",
+    "back": "Back to articles",
+    "tags": "Tags",
+    "progress": "Reading progress"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search articles, tools, concepts…",
+    "label": "Search keywords",
+    "button": "Search",
+    "results": "{n} results for “{q}”",
+    "none": "No results for “{q}”. Try another keyword such as “prompt”, “LLM” or “RAG”.",
+    "hint": "Type a keyword to search the entire article library."
+  },
+  "categories": {
+    "generative-ai": { "name": "Generative AI", "desc": "LLMs, image and video models, and how they work." },
+    "machine-learning": { "name": "Machine Learning", "desc": "Math foundations, algorithms and model training." },
+    "prompt-engineering": { "name": "Prompt Engineering", "desc": "Techniques for accurate, reliable model output." },
+    "ai-tools": { "name": "AI Tools", "desc": "Reviews and guides for AI tools at work." },
+    "ai-ethics": { "name": "Ethics & Safety", "desc": "Risks, regulation and responsible AI use." },
+    "tutorials": { "name": "Tutorials", "desc": "Step-by-step builds of real AI projects." }
+  },
+  "about": {
+    "title": "About Kendle learnAI",
+    "lead": "We help people understand and master artificial intelligence through clear, honest, practical content.",
+    "missionTitle": "Our mission",
+    "mission": "AI is changing how we learn, work and create. Yet most of the best material is dense with jargon and far from everyday practice. Kendle learnAI exists to close that gap: every article explains the core idea, shows how to apply it, and is honest about the technology's limits.",
+    "valuesTitle": "Core values",
+    "values": [
+      { "title": "Clarity", "text": "Plain language, with concrete examples." },
+      { "title": "Honesty", "text": "No hype. We say what AI can and cannot do." },
+      { "title": "Practicality", "text": "We prioritise what you can apply to your work this week." },
+      { "title": "Community", "text": "We listen to readers and write for real needs." }
+    ],
+    "audienceTitle": "Who is it for?",
+    "audience": ["Students and beginners exploring AI", "Professionals boosting productivity with AI", "Developers integrating LLMs into products", "Managers who need to understand AI to decide well"],
+    "cta": "Questions or partnership ideas?",
+    "ctaButton": "Get in touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Topic ideas, content partnerships or feedback: we read every message and usually reply within 1–2 business days.",
+    "infoTitle": "Other ways to connect",
+    "emailLabel": "Email",
+    "responseLabel": "Response time",
+    "responseValue": "1–2 business days",
+    "topics": ["Suggest an article topic", "Partnership / sponsorship", "Content feedback", "Other"]
+  },
+  "form": {
+    "name": "Full name",
+    "email": "Email",
+    "topic": "Topic",
+    "message": "Message",
+    "messageHelp": "At least 10 characters.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "contact": { "success": "Thank you! Your message has been sent and we'll reply soon." },
+    "newsletter": {
+      "title": "The weekly AI brief",
+      "lead": "One email every Friday with new articles, tools worth trying and the AI news that matters, all in a 5-minute read.",
+      "placeholder": "you@example.com",
+      "button": "Subscribe for free",
+      "note": "No spam. Unsubscribe anytime.",
+      "success": "You're in! See you in this Friday's brief."
+    },
+    "errors": {
+      "name": "Please enter your name (at least 2 characters).",
+      "email": "Please enter a valid email, e.g. name@gmail.com",
+      "message": "Message needs at least 10 characters.",
+      "server": "Something went wrong. Please try again in a few minutes.",
+      "rate": "Too many submissions. Please try again in 15 minutes.",
+      "network": "Can't reach the server. Check your connection and retry."
+    }
+  },
+  "footer": {
+    "about": "A bilingual AI blog helping people understand, use and master artificial intelligence.",
+    "explore": "Explore",
+    "topics": "Topics",
+    "company": "Kendle learnAI",
+    "rss": "RSS Feed",
+    "rights": "All rights reserved.",
+    "made": "Written with curiosity in Vietnam."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "The page you're looking for may have moved or no longer exists.",
+    "home": "Back to home",
+    "search": "Search articles"
+  }
+}
